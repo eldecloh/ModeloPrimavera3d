@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirección según el sistema operativo</title>
+    <script>
+      // Función para detectar el sistema operativo y redirigir
+      function redirectBasedOnOS() {
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+        // Detectar Android
+        if (/android/i.test(userAgent)) {
+          window.location.href = "android.html"; // Página para Android
+        }
+        // Detectar iOS
+        else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          window.location.href = "ios.html"; // Página para iOS
+        } else {
+          alert("Sistema operativo no soportado para esta funcionalidad.");
+        }
+      }
+    </script>
+  </head>
+  <body onload="redirectBasedOnOS()">
+    <h1>Redirigiendo...</h1>
+    <p>Por favor espera mientras detectamos tu dispositivo.</p>
+  </body>
+</html>
